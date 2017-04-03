@@ -55,7 +55,7 @@ $captcha 	= $_POST['captcha'];
 
 
 IF(STRTOLOWER($captcha) == STRTOLOWER($_SESSION['captcha']) && $age >= 13){
-$conn = &ADONewConnection('mysql');
+$conn = &ADONewConnection('mysqli');
 $conn->PConnect('localhost','root','anototexeg37','site1');
 $sql = "INSERT INTO `site1`.`users` (`email`, `fname`, `lname`, `activated`, `priv`, `city`, `state`) VALUES ('$email', '$fname', '$lname', '1', '1', '$city', '$state');";
 $result = $conn->Execute($sql);

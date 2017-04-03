@@ -10,7 +10,7 @@ if (!$_SESSION['admin']){
 include ('../include/adodb/adodb.inc.php');
 $ID = $_GET['id'];
 if ($ID){
-	$conn = &ADONewConnection('mysql');
+	$conn = &ADONewConnection('mysqli');
 	$conn->PConnect('localhost','root','anototexeg37','site1');
 	$result = $conn->Execute("select * FROM ideas WHERE ID = $ID");
 	while (!$result->EOF){
@@ -29,7 +29,7 @@ if ($ID){
 	$conn->Close();
 } else {
 	echo "<h1>Top 1000 Submissions</h1>";
-	$conn = &ADONewConnection('mysql');
+	$conn = &ADONewConnection('mysqli');
 	$conn->PConnect('localhost','root','anototexeg37','site1');
 	$result = $conn->Execute('select * FROM ideas WHERE `approved` = 1 ORDER BY votes DESC LIMIT 1000');
 	if(!$result) {

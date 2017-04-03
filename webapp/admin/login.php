@@ -10,7 +10,7 @@ if ($_SESSION['admin']){
 include ('../include/adodb/adodb.inc.php');
 $password = md5($_POST['password']);
 $username = $_POST['username'];
-$conn = &ADONewConnection('mysql');
+$conn = &ADONewConnection('mysqli');
 $conn->PConnect('localhost','root','anototexeg37','site1');
 $result = $conn->Execute("SELECT * FROM adminPassword WHERE `username` = '$username' AND `password` = '$password'");
 if ($result->RecordCount() == 1){

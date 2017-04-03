@@ -24,7 +24,7 @@ exit();
 $p = md5($p);
 $np = md5($np);
 
-$conn = &ADONewConnection('mysql');
+$conn = &ADONewConnection('mysqli');
 $conn->PConnect('localhost','root','anototexeg37','site1');
 $result = $conn->Execute("select * FROM adminPassword WHERE `username` = '$u' AND `password` = '$p' AND `current` = 1");
 if ($result->RecordCount() == 0){

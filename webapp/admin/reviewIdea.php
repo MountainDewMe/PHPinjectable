@@ -10,7 +10,7 @@ if (!$_SESSION['admin']){
 include ('../include/adodb/adodb.inc.php');
 $ID = $_GET['id'];
 if ($ID){
-	$conn = &ADONewConnection('mysql');
+	$conn = &ADONewConnection('mysqli');
 	$conn->PConnect('localhost','root','anototexeg37','site1');
 	$result = $conn->Execute("select * FROM ideas WHERE ID = $ID");
 	if(!$result) {
@@ -25,7 +25,7 @@ if ($ID){
 	$conn->Close();
 } else {
 	echo "<h1>Unapproved Submissions</h1><br>";
-	$conn = &ADONewConnection('mysql');
+	$conn = &ADONewConnection('mysqli');
 	$conn->PConnect('localhost','root','anototexeg37','site1');
 	$result = $conn->Execute('select * FROM ideas WHERE approved = 0');
 	if(!$result) {

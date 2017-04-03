@@ -10,7 +10,7 @@ if (!$_SESSION['admin']){
 include ('../include/adodb/adodb.inc.php');
 $ID = $_POST['id'];
 if ($ID){
-	$conn = &ADONewConnection('mysql');
+	$conn = &ADONewConnection('mysqli');
 	$conn->PConnect('localhost','root','anototexeg37','site1');
 	$result = $conn->Execute("DELETE FROM ideas WHERE `ID` = $ID");
 	$result->Close();

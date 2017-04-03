@@ -10,7 +10,7 @@ if (!$_SESSION['admin']){
 }
 $ID = $_POST['id'];
 if ($ID){
-	$conn = &ADONewConnection('mysql');
+	$conn = &ADONewConnection('mysqli');
 	$conn->PConnect('localhost','root','anototexeg37','site1');
 	$result = $conn->Execute("update ideas SET `approved` = '1' WHERE `ID` = $ID");
 	$result->Close();

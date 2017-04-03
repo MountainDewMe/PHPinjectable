@@ -7,7 +7,7 @@ $session = session_id();
 include ('../include/adodb/adodb.inc.php');
 $id = $_GET['id'];
 if ($id){
-	$conn = &ADONewConnection('mysql');
+	$conn = &ADONewConnection('mysqli');
 	$conn->PConnect('localhost','root','anototexeg37','site1');
 	$voted = $conn->Execute("SELECT * FROM votes WHERE `cookie` = '$session'"); 
 	if ($voted->RecordCount() >= 5){

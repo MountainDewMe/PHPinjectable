@@ -4,7 +4,7 @@ if(!isset($_SESSION['admin'])){
 	$_SESSION['admin'] = false;
 }
 include ('include/adodb/adodb.inc.php');
-$conn = &ADONewConnection('mysql');
+$conn = &ADONewConnection('mysqli');
 $conn->PConnect('localhost','root','anototexeg37','site1');
 $sql = "select * FROM ideas WHERE `approved` = 1 ORDER BY votes DESC LIMIT 100";
 $result = $conn->Execute($sql);
@@ -22,11 +22,11 @@ $(document).ready(function() {
 	$(".panelParent").mouseenter(function(){
 		$(this).children(".panel").transition({y:'20px'});
 	});
-	
+
 	$(".panelParent").mouseleave(function(){
 		$(this).children(".panel").transition({y:'0px'});
 	});
-	
+
 	$(".vote").on("click", function(){
 		var id = $(this).attr('id');
 		$(this).text("Voted");
